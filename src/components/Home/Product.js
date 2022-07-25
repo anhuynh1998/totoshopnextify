@@ -3,6 +3,7 @@ import "./Product.scss"
 import * as actions from "../../store/actions"
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import Fade from 'react-reveal/Fade';
 
 class Product extends Component {
 
@@ -49,6 +50,7 @@ class Product extends Component {
     render() {
       let products= this.state.arrProduct
         return (
+            
             <div className=' product-content'>
                 <div className='title'>
                     <h2>NEW ARRIVALS</h2>
@@ -56,13 +58,18 @@ class Product extends Component {
                 <div className='product-main row '>
                     {products && products.length > 0 && products.map( ( item, index ) => {
                         return (
-                            <div key={index} className='product-item col-3 ' onClick={()=>this.handelViewProductDetail(item)}>
-                                <div className='product-img '>
-                                    <img src={item.image} />
+                            <Fade top cascade key={index}>
+                                <div key={index} className='product-item col-3 ' onClick={() => this.handelViewProductDetail( item )}>
+                                    <div className='product-img '>
+                                        <img src={item.image} />
 
+                                    </div>
+                                    <div className='product-price'>{item.price} $ </div>
                                 </div>
-                                <div className='product-price'>{ item.price} $ </div>
-                            </div>
+
+                            </Fade>
+                           
+                           
                        )
                    })}
                 </div>

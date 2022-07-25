@@ -1,6 +1,9 @@
 
 import actionTypes from './actionTypes';
 import { getAllCategory , getAllProduct} from '../../services/UserSevices';
+import { dispatch } from '../../redux';
+import { get } from 'lodash';
+import { toast } from "react-toastify";
 
 export const fetAllCategory = () => {
     return async ( dispatch, getSate ) => {
@@ -81,3 +84,95 @@ export const fetchALLProductSuccess = ( data ) => ( {
 export const fetchALLProductFails = () => ( {
     type: actionTypes.FETCH_ALL_PRODUCT_FAILS
 } )
+
+export const addToCart = (  product ) => {
+    return  ( dispatch, getState ) => {
+        try {
+          
+
+            const cartItems = getState().admin.arrCartItem.slice();
+            let alreadyExists = false;
+            cartItems.forEach( ( x ) => {
+                if ( x.id === product.id ) {
+                    alreadyExists = true;
+                    x.count++;
+                }
+            } );
+            if ( !alreadyExists ) {
+                cartItems.push( { ...product, count: 1 } )
+               
+
+            }
+           
+            dispatch( addTocCartSuccess( cartItems ) );
+            toast( ' Successfully added to cart', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            } );
+         localStorage.setItem( "cartItems", JSON.stringify( cartItems ) );
+
+        } catch ( e ) {
+            console.log( e )
+            dispatch( addToCartFails() )
+
+        }
+    }
+    
+
+    
+}
+export const addTocCartSuccess = ( cartItems ) => ( {
+    type: actionTypes.ADD_TO_CART_SUCCESS,
+    data: cartItems
+    
+} ) 
+export const addToCartFails = () => ( {
+    type:actionTypes.ADD_TO_CART_FAILS
+} )
+
+export const removeItemFromCart = ( product ) => {
+    return ( dispatch,getSate ) => {
+        try {
+            const cartItems = getSate().admin.arrCartItem.slice()
+                .filter( ( x ) => x.id !== product.id );
+            dispatch( DeletItemCartSuccess( cartItems ) )
+            toast.success( 'Success Delete!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            } );
+           
+           
+            localStorage.setItem( "cartItems", JSON.stringify( cartItems ) );
+            
+        } catch ( e ) {
+            console.log( e )
+            DeletItemCartFails();
+            
+        }
+    }
+    
+
+
+}
+
+
+export const DeletItemCartSuccess = ( cartItems ) => ( {
+    type: actionTypes.REMOVE_FROM_CART_SUCCESS,
+    data: cartItems
+
+} )
+export const DeletItemCartFails = () => ( {
+    type: actionTypes.REMOVE_FROM_CART_FAILS
+} )
+
+

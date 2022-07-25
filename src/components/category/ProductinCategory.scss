@@ -1,29 +1,9 @@
 .product-content-incate{
-    .name-category{
-        font-size: 37px;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 100px;
-     overflow: hidden;
-            &:after{
-            content: "";
-            top: 20px;
-            display: block;
-            height: 0.5em;
-          
-            width:300px;
-         
-            margin-left: 38%;
-            border-bottom: 2px solid black;
-            }
-    
-    }
-    padding: 50px;
    
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    padding: 100px;
    
     .product-item{
          cursor: pointer;
@@ -33,7 +13,6 @@
         flex-direction: column;
          &:hover{
         border: 1px solid rgb(80, 255, 238);
-        box-shadow: 1px 1px 1px rgb(141, 139, 139);
     }
         .product-image{
             display: flex;
@@ -41,7 +20,7 @@
             align-items: center;
             height: 300px;
             img{
-                width: 60%;
+                width: 70%;
                 
             }
         }

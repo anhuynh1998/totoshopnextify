@@ -165,28 +165,3 @@
 
 }
 
-.Modal {
-     flex: 1;
-  
-    overflow-y: scroll;
-    position: absolute;
-    top: 40px;
-   
-    right: 20px;
-    bottom: 40px;
-    background-color: white;
-    border: solid;
-    box-shadow: none;
-    width: 80%;
-  
-        .close-modal{
-            position: absolute;
-            right: 1rem;
-            top: 0.5rem;
-            z-index: 1000;
-            box-shadow: none;
-           
-            color:blue;
-        }
-        
-  }

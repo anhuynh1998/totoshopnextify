@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./slider.scss"
 import Carousel from 'react-bootstrap/Carousel';
-import Fade from 'react-reveal/Fade';
 
 class Slider extends Component {
     render() {
@@ -43,22 +42,18 @@ class Slider extends Component {
 
 
                 </div>
-                <Fade top>
-                    <div className='image-banner'>
-                        <div className='col-6 banner-left'>
-                            <img src='https://res.cloudinary.com/http-antubeone-blogspot-com/image/upload/v1658410927/Tha__ng_5_Banner_do__i__Nam__ijf5mg.jpg' />
+                <div className='image-banner'>
+                    <div className='col-6 banner-left'>
+                        <img src='https://res.cloudinary.com/http-antubeone-blogspot-com/image/upload/v1658410927/Tha__ng_5_Banner_do__i__Nam__ijf5mg.jpg'/>
+                        
 
-
-                        </div>
-                        <div className='col-6 banner-right'>
-                            <img src='https://res.cloudinary.com/http-antubeone-blogspot-com/image/upload/v1658410928/Tha__ng_5_Banner_do__i__Nu______vyd5oi.jpg' />
-
-                        </div>
+                    </div>
+                    <div className='col-6 banner-right'>
+                        <img src='https://res.cloudinary.com/http-antubeone-blogspot-com/image/upload/v1658410928/Tha__ng_5_Banner_do__i__Nu______vyd5oi.jpg' />
 
                     </div>
 
-                </Fade>
-              
+                </div>
 
             </React.Fragment>
           

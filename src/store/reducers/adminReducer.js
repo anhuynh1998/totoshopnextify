@@ -1,10 +1,8 @@
 import actionTypes from '../actions/actionTypes';
 
-
 const initialState = {
     arrCategory: [],
-    arrProduct: [],
-    arrCartItem: JSON.parse( localStorage.getItem( "cartItems" ||"[]") )
+    arrProduct:[]
 
 }
 
@@ -35,34 +33,6 @@ const adminReducer = ( state = initialState, action ) => {
 
             }
         case actionTypes.FETCH_ALL_PRODUCT_FAILS:
-            return {
-                ...state,
-
-            }
-        case actionTypes.ADD_TO_CART_SUCCESS:
-            let CartItem = { ...state }
-            CartItem.arrCartItem = action.data;
-
-            return {
-                ...CartItem
-
-
-            }
-        case actionTypes.ADD_TO_CART_FAILS:
-            return {
-                ...state,
-
-            }
-        case actionTypes.REMOVE_FROM_CART_SUCCESS:
-            let CartItemRemove = { ...state }
-            CartItemRemove.arrCartItem = action.data;
-
-            return {
-                ...CartItemRemove
-
-
-            }
-        case actionTypes.REMOVE_FROM_CART_FAILS:
             return {
                 ...state,
 

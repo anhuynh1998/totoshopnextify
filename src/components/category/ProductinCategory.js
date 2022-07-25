@@ -66,8 +66,7 @@ class ProductinCategory extends Component {
     
     render() {
     
-        let product = this.state.arrProductIncategory;
-        let category = this.props.match.params.name;
+        let product = this.state.arrProductIncategory
         
         return (
             <div className='container-fluid '>
@@ -81,7 +80,6 @@ class ProductinCategory extends Component {
                         <div className='content-right col-10'>
                             <div className='product-content-incate container'>
                                 <div className='row'>
-                                    <h6 className='name-category'>{ category}</h6>
                                     {
                                         product && product.length > 0 && product.map( ( item, index ) => {
                                             return (
